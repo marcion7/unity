@@ -55,4 +55,17 @@ public class lab04_zad4_Move : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Donut"))
+        {
+            Debug.Log("Wzi¹³eœ gryza donuta.");
+        }
+
+        if (other.gameObject.CompareTag("Trampoline"))
+        {
+            playerVelocity.y += Mathf.Sqrt( 3.0f * jumpHeight * -3.0f * gravityValue);
+        }
+    }
 }
